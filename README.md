@@ -15,6 +15,7 @@ El objetivo de este proyecto será:
 * astral: construye el árbol consenso, calcula los valores de Factor de Concordancia Genética gCF
 * ATOM: para editar textos
 * FigTree: Visualización de Árboles Filogenéticos
-##Sube una foto que represente tu organismo o grupo de organismos. 
-![Marmosa lepida](https://multimedia20stg.blob.core.windows.net/especiesreduced/marmosalepida_cordillera%20del%20conndor.jpg)
+  
+## Sube una foto que represente tu organismo o grupo de organismos. 
+!(https://multimedia20stg.blob.core.windows.net/especiesreduced/marmosalepida_cordillera%20del%20conndor.jpg)
 
