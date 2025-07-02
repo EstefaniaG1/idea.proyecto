@@ -1,29 +1,60 @@
-# IDEA Proyecto
+# Análisis Filogenético Integrado en Didelphidae: Genes y Caracteres
  
-## En que organismo o grupo de organismos vas a trabajar?
+## Autora: Estefania Guallichico
 
-Trabajaré con marsupiales de la familia **Didelphidae**, con enfasis en la especie **_Marmosa lepida_** 
+## Proposito del proyecto del proyecto
 
-## Brevemente describe que piensas hacer en tu proyecto?
+Este proyecto tiene como objetivo contruir arboles filogeneticos de la familia **Didelphidae**, a traves del uso de herramientas bioinformaticas y datos multilocus. 
 
-El objetivo de este proyecto será:
+Para esto se realizara lo siguiente:
+- Construcción de árboles filogenéticos individuales por gen y su integración en un árbol de consenso, evaluando la concordancia genética como (gCF y sCF).
+- Análisis filogenético basado en una matriz de caracteres, visualizada con el software **Mesquite**, para comparar patrones de caracteres informativos entre taxones.  
 
-**Construir filogenia con análisis de gene concordance factors (gCF):**
-   - Se utilizarán algunos genes mitocondriales y nucleares para crear filogenias de cada gen de la familia Didelphidae.
-   - Luego se realizará una filogenia consenso, donde se analizará los valores de bootstrap y los gCF.  
+## Por que Didelphidae y _Marmosa Lepida_
+La familia **Didelphidae** representa un grupo diverso y ecológicamente importante de marsupiales del Neotrópico. Estos animales han colonizado una gran variedad de hábitats y presentan patrones interesantes de evolución adaptativa.
+
+En particular, la especie **_Marmosa lepida_** se eligió como foco de estudio por su distribución restringida en la región amazónica y su relativa escasez de estudios filogenéticos detallados. Además, su inclusión permite explorar relaciones evolutivas poco resueltas dentro del grupo y fortalecer el conocimiento sobre biodiversidad sudamericana.
+
+Ademas, algunos estudios han identificado en ciertos miembros de este grupo genes asociados a resistencia inmunológica, incluyendo respuestas contra patógenos intracelulares y virus. Esta familia posee un sistema inmune versátil, lo que la convierte en un modelo emergente para comprender mecanismos de defensa en mamíferos no placentarios. Analizar especies como *Marmosa lepida*, poco exploradas genéticamente, puede revelar variantes genéticas únicas, así como genes implicados en adaptación a ambientes tropicales extremos. Esta combinación de valor evolutivo y potencial biomédico refuerza la importancia de su estudio a través de enfoques filogenéticos integrados.
+
+![ ](https://imgs.mongabay.com/wp-content/uploads/sites/25/2018/03/22183354/marsupial-marmosa-WWF-768x512.jpg)
 
 
-## Que programas voy a usar en mi proyecto 
+## Que herramientas se debe de usar?
 
-* Muscle: para alineamientos de genes 
-* IQ-TREE: para hacer filogenias 
+* Muscle: para alineamientos de genes
+* IQ-TREE: para hacer filogenias
 * astral: construye el árbol consenso, calcula los valores de Factor de Concordancia Genética gCF
 * ATOM: para editar textos
 * FigTree: Visualización de Árboles Filogenéticos
+* FastQC: control y limpieza de calidad de lectura
+* Mesquite: visualización y análisis de matriz de caracteres
   
-## Sube una foto que represente tu organismo o grupo de organismos. 
 
-![https://imgs.mongabay.com/wp-content/uploads/sites/25/2018/03/22183354/marsupial-marmosa-WWF-768x512.jpg]
+## Requisitos para ejecutar el proyecto
+- Sistema operativo basado en Unix o Git Bash en Windows
+- Programas instalados en el PATH:
+  - `muscle`, `iqtree2`, `trimmomatic`, `fastqc`, `bwa`, `samtools`
 
+## Como usar el programa 
+
+* Alinear secuencias 
+ muscle -in secuencias/COI.fasta -out alineamientos/COI_aln.fasta
+* Construir arboles 
+iqtree2 -s alineamientos/COI_aln.fasta -m MFP -bb 1000 -nt AUTO
+* arboles consenso 
+cat arboles/*.treefile > arboles/todos_los_arboles.tre
+iqtree2 -t arboles/todos_los_arboles.tre --consense
+* genes concordance
+iqtree2 -s concatenado.fasta -p particiones.txt -m MFP -B 1000 \
+--gcf arboles/todos_los_arboles.tre -t CONCAT --scf 100
+* Matriz de caracteres 
+Adicionalmente, se utiliza una matriz de caracteres generada a partir de alineamientos para explorar las posiciones informativas entre especies. Esta matriz fue visualizada con Mesquite y se empleó para:
+
+Identificar sitios filogenéticamente informativos
+
+Comparar patrones de similitud
+
+Construir árboles complementarios por parsimonia
 
 
