@@ -1,14 +1,10 @@
-# Análisis Filogenético Integrado en Didelphidae: Genes y Caracteres
+#Radiación adaptativa en Phyllostomidae: evaluando la estabilidad de los nodos filogenéticos
  
 ## Autora: Estefania Guallichico
 
-## Proposito del proyecto del proyecto
+## Objetivo del proyecto
 
-Este proyecto tiene como objetivo contruir arboles filogeneticos de la familia **Didelphidae**, a traves del uso de herramientas bioinformaticas y datos multilocus. 
-
-Para esto se realizara lo siguiente:
-- Construcción de árboles filogenéticos individuales por gen y su integración en un árbol de consenso, evaluando la concordancia genética como (gCF y sCF).
-- Análisis filogenético basado en una matriz de caracteres, visualizada con el software **Mesquite**, para comparar patrones de caracteres informativos entre taxones.  
+Este proyecto tiene como objetivo reconstruir las relaciones evolutivas entre especies de murciélagos de la familia Phyllostomidae mediante análisis filogenéticos multilocus. Evaluaremos bootstrap y Gene Concordance Factor (GCF) para identificar conflictos gene-especie que puedan reflejar procesos de especiación rápida o eventos evolutivos complejos.
 
 ## Por que Didelphidae y _Marmosa Lepida_
 La familia **Didelphidae** representa un grupo diverso y ecológicamente importante de marsupiales del Neotrópico. Estos animales han colonizado una gran variedad de hábitats y presentan patrones interesantes de evolución adaptativa.
