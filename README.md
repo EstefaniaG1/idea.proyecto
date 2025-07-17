@@ -1,4 +1,4 @@
-#Filogenia multi-génica y factores de concordancia génica (gCF) en Phyllostomidae y Vespertilionidae: evaluando la radiación adaptativa en relación con la dieta especializada 
+# Filogenia multi-génica y factores de concordancia génica (gCF) en Phyllostomidae y Vespertilionidae: evaluando la radiación adaptativa en relación con la dieta especializada 
 
 ## Autora: Estefania Guallichico
 
@@ -15,7 +15,7 @@ Se busca determinar si estos grupos son monofiléticos y si existen señales de 
 
 ![ ](https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=400,h=280,fit=crop/AQE3bBVaKPi5W2re/vampyressathyonef-mv05zx84OWipbk0M.jpg)
  
-![ ](https://www.researchgate.net/publication/381393377/figure/fig4/AS:11431281251610724@1718289918025/Noteworthy-records-of-Vespertilionidae-A-Dasypterus-ega-Gervais-1856-from-El.jpg) 
+![ ](https://ecuador.inaturalist.org/photos/54080)
 
 ## Proposito del proyecto 
 
@@ -48,7 +48,7 @@ iqtree2 -s concatenado.fasta -p particiones.txt -m MFP -B 1000 \
 * visualizacion
 abrir el archivo.treefile en FigTree observar los nodos con soporte 
 
-#Notas
+# Notas
 
 Las especies usadas pertenecen a las familias Phyllostomidae (nectarívoros, frugívoros y carnívoros/piscívoros) y Vespertilionidae (insectívoros).
 
