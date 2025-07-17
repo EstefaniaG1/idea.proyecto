@@ -1,29 +1,38 @@
-#Descargar muscle y iqtree (opcional)
+#!/bin/bash
 
-#correr muscle
+#Comandos para hacer filogenias concenso
+
+#Iniciar sesión en un nodo computacionall
+
+# Solicitar sesión interactiva en un nodo computacional
+
+qrsh -l h_data=10G,h_rt=6:00:00
+
+
+# Ejecutar MUSCLE (v3.8.31)
 ./muscle3.8.31_i86linux64 -in rna.fna -out muscle_rna.fna -maxiters 1 -diags
 
-#cargar iqtree
-module load iqtree/2.2.2.6 *cambiar a carpeta opcional
+# Carga IQ-TREE (versión 2.2.2.6)
+module load iqtree/2.2.2.6
 
-#hacer filogenia 1 sin astral
+# Hacer filogenia 1 - Sin astral
 for muscle in muscle_*
 do
 iqtree2 -s ${muscle}
 done
 
-#caragar astral
-astral=/u/scratch/d/dechavez/Bioinformatica-PUCE/Astral/astral.5.7.8.jar (*descargar en mi carpeta)
+# Cragar Astral Utilizar versión 5.7.1 - Descargada (Utilizar esta desde cualquier ubicación)
+astral=$SCRATCH/Bioinformatica-PUCE/RepotenBio/EstefaniaGuallichico/ProyectoFinal/obp_Vespertilionidae/ncbi_dataset/data/Astral/ASTRAL-5.7.1/Astral/astral.5.7.1.jar
 
-#concatenar
-cat *.treefile > All.Trees.Phyllostomidae2.tree
+#Filogenia consenso 
+for file in All.Trees.*.tree
+do
+[ -e "$file" ] || continue
+cat *.treefile > $file
+suffix=$(echo "$file" | sed 's/^All\.tree\.\(.*\)\.tree$/\1/')
+output_file="Astral.${suffix}.tree
+java -jar $astral -i $file -o $output_file
+iqtree2 -t $output_file --gcf $file --prefix GCF.concord
+done
 
-#hacer astral java
-java -jar $astral -i All.Trees.Phyllostomidae2.tree -o Astral.Phyllostomidae2.tree
-
-#hacer arbol concenso
-iqtree2 -t Astral.Phyllostomidae4.tree --gcf All.Trees.Phyllostomidae4.tree --prefix GCF.concord
-
-hacer que vaya a la carpeta resultados
-
-../resultados/All.Trees.Phyllostomidae4.tree
+mv GCF.concord.* ../Results/
